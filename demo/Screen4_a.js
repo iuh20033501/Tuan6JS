@@ -1,7 +1,8 @@
-        import { StatusBar } from 'expo-status-bar';
-        import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-        import { NavigationContainer } from '@react-navigation/native';
-        import { createNativeStackNavigator } from '@react-navigation/native-stack';
+          import { StatusBar, setStatusBarBackgroundColor } from 'expo-status-bar';
+          import { useState } from 'react';
+          import { ScrollView, StyleSheet, Text, View,Image } from 'react-native';
+          import { SafeAreaView, TouchableOpacity } from 'react-native-web';
+          import Icon from 'react-native-vector-icons/FontAwesome';
         
         export default function Screen4_a({navigation}) {
   
@@ -58,7 +59,7 @@
           return (
             <SafeAreaView style={styles.container}>
               <View>
-                <Text style={{paddingLeft:20,backgroundColor:"#8c8c8c"}}>Bạn có thắc mắc với sản phẩm vừa xem. Đừng ngại<br/>chat với shop</Text>
+                <Text style={{paddingLeft:20,backgroundColor:"#DDDDDD"}}>Bạn có thắc mắc với sản phẩm vừa xem. Đừng ngại<br/>chat với shop</Text>
               </View>
            
               <ScrollView style={{height:'100%' }}>
@@ -68,8 +69,9 @@
                         <Image source={item.image} style={styles.Img}></Image>
                         <View style={{flexDirection:'column',width:230}}>
                             <Text >{item.name}</Text>
-                            <Text style={{color:item.id == 1 ? 'red' : '#7d5b5b',}}>{item.shop}</Text>
+                            <Text style={{color:(item.id == 1 && item.id == 2 ? 'red' : '#7d5b5b')}}>{item.shop}</Text>
                         </View>
+                        
                         <TouchableOpacity onPress={()=>{navigation.navigate('Screen4_b')}} style={{backgroundColor:"red",height:50,width:50,justifyContent:'center',borderRadius:5,alignItems:'center',}}  >
                           <Text style={{color:'white'}}>CHAT </Text>
                         </TouchableOpacity>
@@ -79,11 +81,8 @@
                 
               </ScrollView>
               <View style={styles.Menu}>
-               <Icon name="bars" size={30} color="black" />
-                <Icon name="home" size={30} color="black" />
-                <Image source={require('../demo/img/vector.png')} style={{height:30,width:30}}></Image>
-                {/* <Image source={require('../demo/img/vector.png')}></Image> */}
-              </View>
+            <Image source={require('../demo/img/item8.png')} style={{height:'100%',width:'100%'}}></Image>
+        </View>
              
             </SafeAreaView>
           );
@@ -125,11 +124,7 @@
           Menu:{
             height:50,
             width:"100%",
-            justifyContent:'space-around',
-            alignItems:'center',
-            backgroundColor:'blue',
             position: 'absolute',
             bottom:0,
-            flexDirection:'row'
           }
         });

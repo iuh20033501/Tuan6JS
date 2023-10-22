@@ -8,27 +8,27 @@ export default function Screen4_b({navigation}) {
   const [data, setData] = useState([
     {
       id: 1,
-      image: require('../demo/img/item2.png'),
+      image: require('../demo/img/item7.png'),
     },
     {
       id: 2,
-      image: require('../demo/img/item3.png'),
-    },
-    {
-      id: 3,
-      image: require('../demo/img/item4.png'),
-    },
-    {
-      id: 4,
-      image: require('../demo/img/item5.png'),
-    },
-    {
-      id: 5,
       image: require('../demo/img/item6.png'),
     },
     {
+      id: 3,
+      image: require('../demo/img/item5.png'),
+    },
+    {
+      id: 4,
+      image: require('../demo/img/item4.png'),
+    },
+    {
+      id: 5,
+      image: require('../demo/img/item2.png'),
+    },
+    {
       id: 6,
-      image: require('../demo/img/item7.png'),
+      image: require('../demo/img/item3.png'),
     },
   ])
   const [hoveredItemId, setHoveredItemId] = useState(null);
@@ -37,7 +37,6 @@ export default function Screen4_b({navigation}) {
 
      <ScrollView style={{height:'100%' }}>
        <View style={styles.View}>
-       
        {data.map((item, index) => (
           <TouchableOpacity style={styles.Tou} key={index}onPress={()=>{navigation.navigate('Screen4_a')}} onMouseEnter={() => setHoveredItemId(item.id)}  onMouseLeave={() => setHoveredItemId(null)}>
             <View style={{backgroundColor: hoveredItemId === item.id ? '#00BFFF':'white',alignItems:'center',flexDirection:'column'}} >
@@ -50,7 +49,7 @@ export default function Screen4_b({navigation}) {
                     <View style={{flexDirection:'row',width:"100%",height:80}}>
                       <Text style={{fontWeight:'bold',paddingLeft:1}}>69.900 đ</Text>
                       <Text style={{ marginHorizontal: 15, color: '#8c8c8c',}} > -39%</Text>
-                    </View>
+                    </View> 
             </View>
           </TouchableOpacity>
         ))}
